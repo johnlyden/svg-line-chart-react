@@ -14,7 +14,7 @@ class LineChart extends Component {
   // GET MAX & MIN Y
   getMinY() {
     const {data} = this.props;
-    return data.reduce((min, p) => p.y < min ? p.y : min, data[0].y);
+    return data.reduce((min, p) => p.y < min ? p.y : min, data[0].y); // second argument to reduce is the initial value
   }
   getMaxY() {
     const {data} = this.props;
