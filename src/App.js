@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import LineChart from './LineChart';
 
 class App extends Component {
   createFakeData(){
@@ -17,7 +18,8 @@ class App extends Component {
 render() {
     return (
       <div className="App">
-        // THIS IS WHERE OUR SVG CHART WILL RENDER
+       <div className="header">react svg line chart [part 1]</div>
+        <LineChart data={this.createFakeData()} /> 
       </div>
     );
   }

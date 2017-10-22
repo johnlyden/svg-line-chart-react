@@ -1,7 +1,7 @@
 .linechart_path {
-  stroke-width: 3; // Thick Line
-  fill: none;      // No Fill
+  stroke-width: 2; 
+  fill: none;
 }
 .linechart_axis {
-  stroke: #bdc3c7; // Grey Axis Color
+  stroke: #bdc3c7;
 }
