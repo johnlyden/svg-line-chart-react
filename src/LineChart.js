@@ -20,6 +20,18 @@ class LineChart extends Component {
     const {data} = this.props;
     return data.reduce((max, p) => p.y > max ? p.y : max, data[0].y);
   }
+  // GET THE SVG X COORDINATES
+  getSvgX(x) {
+    // get the svg width from props
+    const {svgWidth} = this.props;
+    // The coordinate is determined by dividing the current data point by the max value. This decimal is then multiplied by the width/height of the containing element.
+    return (x / this.getMaxX() * svgWidth);
+  }
+  //  GET THE SVG Y COORDINATES
+  getSvgY(y) {
+    const {svgHeight} = this.props;
+    return svgHeight - (y / this.getMaxY() * svgHeight);
+  }
 
   render() {
     return (
