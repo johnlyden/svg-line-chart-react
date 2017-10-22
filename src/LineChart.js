@@ -2,6 +2,25 @@ import React, {Component} from "react"
 import "./LineChart.css"
 
 class LineChart extends Component {
+  // GET MAX & MIN X
+  getMinX() {
+    const {data} = this.props;
+    return data[0].x;
+  }
+  getMaxX() {
+    const {data} = this.props;
+    return data[data.length - 1].x;
+  }
+  // GET MAX & MIN Y
+  getMinY() {
+    const {data} = this.props;
+    return data.reduce((min, p) => p.y < min ? p.y : min, data[0].y);
+  }
+  getMaxY() {
+    const {data} = this.props;
+    return data.reduce((max, p) => p.y > max ? p.y : max, data[0].y);
+  }
+
   render() {
     return (
       <svg>
