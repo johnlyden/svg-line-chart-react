@@ -51,9 +51,32 @@ class LineChart extends Component {
     );
   }
 
-  render() {
+  // CREATE THE AXIS FOR THE GRAPH
+  makeAxis() {
+    // get the min and max for X and Y
+    const minX = this.getMinX(), maxX = this.getMaxX();
+    const minY = this.getMinY(), maxY = this.getMaxY();
+    // return a <g> element with thte 
+    // g element is a container used to group other SVG elements. 
     return (
-      <svg>
+      // an axis is just vertical and horizontal ine
+      <g className="linechart_axis">
+        <line
+          x1={this.getSvgX(minX)} y1={this.getSvgY(minY)}
+          x2={this.getSvgX(maxX)} y2={this.getSvgY(minY)} />
+        <line
+          x1={this.getSvgX(minX)} y1={this.getSvgY(minY)}
+          x2={this.getSvgX(minX)} y2={this.getSvgY(maxY)} />
+      </g>
+    );
+  }
+
+  render() {
+    const { svgHeight, svgWidth } = this.props;
+    return (
+      <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`}>
+        {this.makePath()}
+        {this.makeAxis()}
       </svg>
     );
   }
